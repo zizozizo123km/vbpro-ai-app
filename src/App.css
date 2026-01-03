@@ -1,0 +1,67 @@
+/*
+    src/App.css
+    This file primarily imports Tailwind CSS styles and handles necessary global resets or customizations.
+*/
+
+/* --- 1. Tailwind Directives --- */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* --- 2. Global Base Styles & Customizations --- */
+
+/* Base styling for the entire application (Dark Theme Default) */
+body {
+    /* Apply dark background, default text color, and standard font */
+    @apply bg-gray-950 text-white font-sans;
+    min-height: 100vh;
+}
+
+/* Custom Scrollbar Styles (Aesthetic enhancement common in streaming apps) */
+
+/* General scrollbar size */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+/* Scrollbar Track (the background) */
+::-webkit-scrollbar-track {
+    background: #171717; /* Neutral 900 */
+}
+
+/* Scrollbar Handle (the thumb) */
+::-webkit-scrollbar-thumb {
+    background-color: #3f3f46; /* Neutral 700 */
+    border-radius: 10px;
+    border: 2px solid #171717;
+}
+
+/* Scrollbar Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background-color: #525252; /* Neutral 600 */
+}
+
+/* --- 3. Custom Tailwind Components/Utilities (Optional, but useful for abstracting common styles) --- */
+
+@layer components {
+    /* Define a common button style for primary actions */
+    .btn-primary {
+        @apply px-6 py-2 bg-red-600 text-white font-semibold rounded transition duration-200 ease-in-out hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50;
+    }
+
+    /* Define a style for text overlays on posters/cards */
+    .card-overlay {
+        @apply absolute inset-0 bg-black bg-opacity-70 opacity-0 transition-opacity duration-300 flex flex-col justify-end p-4;
+    }
+
+    /* Utility to hide the spinner controls on number input fields */
+    .no-spin-input::-webkit-outer-spin-button,
+    .no-spin-input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+    .no-spin-input {
+        -moz-appearance: textfield; /* Firefox */
+    }
+}
